@@ -1,0 +1,3 @@
+Aenigmix is a simple encription library that utilizes Kolakoski sequence properties to generate bitmask from key for XORing byte sequence of any length.
+Thus, without knowledge of the initial key it is impossible to guess the bitmask as it always changes and never repeats.
+However, this algorithm is using as much space as the subject of encription does, so applying it to the big files leads into double space usage of mentioned file size.
