@@ -5,9 +5,9 @@ use aenigmix::cipher;
 fn check_cipher() {
   initialize_files();
   cipher_file();
-  let cert = File::open("cert.crt").unwrap();
-  let ciphered = File::open("ciphered_output.bin").unwrap();
-  cipher::decipher_file_with_cert(&ciphered,&cert);
+  let mut cert = File::open("cert.crt").unwrap();
+  let mut ciphered = File::open("ciphered_output.bin").unwrap();
+  cipher::decipher_file_with_cert(&mut ciphered,&mut cert);
   let deciphered = File::open("deciphered_output.txt").unwrap();
   let input = File::open("hello_world.txt").unwrap();
   for (a, b) in deciphered.bytes().zip(input.bytes()) {
@@ -16,9 +16,9 @@ fn check_cipher() {
 }
 
 fn cipher_file() {
-  let cert = File::open("cert.crt").unwrap();
-  let file = File::open("hello_world.txt").unwrap();
-  cipher::chiper_file_with_cert(&file,&cert);
+  let mut  cert = File::open("cert.crt").unwrap();
+  let mut  file = File::open("hello_world.txt").unwrap();
+  cipher::chiper_file_with_cert(&mut file,&mut cert);
 }
 
 fn initialize_files() {
